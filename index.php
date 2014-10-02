@@ -1,13 +1,10 @@
-<html>
-    <head>
-        <title>
-            Limonade
-        </title>
-    </head>
-    
-    <body>
-        <form method = "POST" action = "test.php">
-            <input type = "text" name = "uri" value = "/truc">
-        </form>
-    </body>
-</html>
+<?php
+require_once("../limonade-master/lib/limonade.php");
+require_once("controleur.php");
+
+
+dispatch("/", "identification");
+
+
+run();
+?>
