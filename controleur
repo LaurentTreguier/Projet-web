@@ -1,0 +1,4 @@
+<?php
+	require("data.php");
+	$bob = new data(132);
+?>
