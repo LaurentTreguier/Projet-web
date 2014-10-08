@@ -9,16 +9,16 @@
         <?php
             require_once 'lib/limonade.php';
             
-            function yolo()
+            function test()
             {
-                echo '
+                return '
                     <p>
-                        '.params('name').'
+                        '.params(0).'YOLO
                     </p>
                     ';
             }
             
-            dispatch_post('/:name', 'yolo');
+            dispatch_post('*', 'test');
             
             run();
         ?>
