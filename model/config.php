@@ -3,4 +3,6 @@
                                "login"    => "root",
                                "password" => "root",
                                "name"     => "rentree");
+    
+    $GLOBALS['cle'] = "isen2012";
 ?>

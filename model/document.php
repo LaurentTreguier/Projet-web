@@ -1,7 +1,7 @@
 <?php
     require_once "table.php";
     
-    class Data extends Table
+    class Document extends Table
     {
         function __construct($id)
         {

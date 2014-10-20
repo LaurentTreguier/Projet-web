@@ -1,8 +1,8 @@
 <?php
-	require_once("model/data.php");
-	require_once("model/document.php");
-	require_once("../limonade-master/lib/limonade.php");
-	$cle="isen2012";
+	require_once("model/config.php");
+	require_once 'model/table.php';
+	require_once("lib/limonade.php");
+	
 
 function identification(){
 	return html('identification.php') ;
@@ -12,14 +12,17 @@ function valider(){
 	$login=params("login");
 	$mdp=params("mdp");
 
-	if($mdp=="$cle"){
-		//verifie si le mail est present dans la bdd. si oui recuperer les identifiants, si non rentree le mail dans la bdd et affiche la suite.
-		new document
-
+	if(strcmp($mdp,$GLOBALS['cle'])){
+		
+		new document($login);
+		return html('analyze.php');
+	}
+	else{
+		echo "fuck off";
 	}
 	
 
-	return html('analyze.php');
+	
 
 }
 
