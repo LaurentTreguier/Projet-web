@@ -5,7 +5,7 @@
     {
         function __construct($id)
         {
-            parent::__construct("document", $id);
+            parent::__construct("document", "identifiant", $id);
         }
     }
 ?>
