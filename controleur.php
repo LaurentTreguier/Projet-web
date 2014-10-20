@@ -2,15 +2,25 @@
 	require_once("model/data.php");
 	require_once("model/document.php");
 	require_once("../limonade-master/lib/limonade.php");
-	/*$bob = new document(9);
-	echo $bob->id;*/
+	$cle="isen2012";
 
 function identification(){
 	return html('identification.php') ;
 }
 
-	/*function login(){
+function valider(){
+	$login=params("login");
+	$mdp=params("mdp");
+
+	/*if($mdp=="$cle"){
+		//verifie si le mail est present dans la bdd. si oui recuperer les identifiants, si non rentree le mail dans la bdd et affiche la suite.
+		new document
 
 	}*/
-	//run();
+	
+
+	return html('analyze.php');
+
+}
+
 ?>
