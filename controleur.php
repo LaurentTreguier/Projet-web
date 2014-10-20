@@ -12,11 +12,11 @@ function valider(){
 	$login=params("login");
 	$mdp=params("mdp");
 
-	/*if($mdp=="$cle"){
+	if($mdp=="$cle"){
 		//verifie si le mail est present dans la bdd. si oui recuperer les identifiants, si non rentree le mail dans la bdd et affiche la suite.
 		new document
 
-	}*/
+	}
 	
 
 	return html('analyze.php');
