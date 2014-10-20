@@ -1,4 +1,16 @@
 <?php
+<<<<<<< HEAD
+    require_once "table.php";
+    
+    class Document extends Table
+    {
+        public function __construct($id)
+        {
+            parent::__construct("document", $id);
+        }
+    }
+?>
+=======
 
 class document{
 	private $doc;
@@ -17,3 +29,4 @@ class document{
 
 
 }
+>>>>>>> bce8ec8592fdb5b4aeec8abd8001aa57a1f9eea1

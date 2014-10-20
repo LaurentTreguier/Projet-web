@@ -1,4 +1,16 @@
 <?php
+<<<<<<< HEAD
+    require_once "table.php";
+    
+    class Data extends Table
+    {
+        public function __construct($id)
+        {
+            parent::__construct("data", $id);
+        }
+    }
+?>
+=======
 
 class data{
 	private $members;
@@ -21,3 +33,4 @@ class data{
 
 }
 ?>
+>>>>>>> bce8ec8592fdb5b4aeec8abd8001aa57a1f9eea1
