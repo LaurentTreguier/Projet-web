@@ -4,7 +4,7 @@ require_once("controleur.php");
 
 
 dispatch("/", "identification");
-dispatch_post("/validation/:login/:mdp", "valider");
+dispatch_post("/validation", "valider");
 
 
 run();

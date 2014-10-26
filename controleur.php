@@ -1,6 +1,7 @@
 <?php
 	require_once("model/config.php");
-	require_once 'model/table.php';
+/*	require_once 'model/table.php';*/
+	require_once('model/data.php');
 	require_once("lib/limonade.php");
 	
 
@@ -9,21 +10,21 @@ function identification(){
 }
 
 function valider(){
-	$login=params("login");
-	$mdp=params("mdp");
+	$login=$_POST['login'];
+	$mdp=$_POST['mdp'];;
 
-	if(strcmp($mdp,$GLOBALS['cle'])){
-		
-		new document($login);
-		return html('analyze.php');
-	}
+	$_POST['mdp'];
+	if($mdp===$GLOBALS['cle']){//si le mdp est valide verifie si le mail existe 
+		echo "$login";			//si oui renvoit les infos sinon crée l'utilisateur dans la base de donnée
+		$bob = new Data($login);
+		echo "$bob->prenom_fils";
+		//return html('analyze.php');
+}
 	else{
 		echo "fuck off";
+		echo "$mdp";
 	}
 	
-
-	
-
 }
 
 ?>
