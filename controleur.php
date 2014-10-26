@@ -16,14 +16,21 @@ function valider(){
 	$_POST['mdp'];
 	if($mdp===$GLOBALS['cle']){//si le mdp est valide verifie si le mail existe 
 		echo "$login";			//si oui renvoit les infos sinon crée l'utilisateur dans la base de donnée
+		
 		$bob = new Data($login);
-		echo "$bob->prenom_fils";
+		$x=$bob->nom_fils;	
+		if(isset($x)){//le mail existe dans la base de donné on renvoit les templates qui vont bien avec les info utilisateurs.
+			echo "ca marche!!!";
+		}
+		else{//le mail n'existe pas dans la bdd, on le rajoute et on renvoit les templates.
+			
+    		echo "marche passss!!!!";}
 		//return html('analyze.php');
-}
-	else{
-		echo "fuck off";
-		echo "$mdp";
-	}
+		}
+		else{
+			echo "fuck off";
+			echo "$mdp";
+		}
 	
 }
 
