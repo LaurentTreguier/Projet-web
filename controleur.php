@@ -22,6 +22,7 @@ function valider(){
 		if(isset($x)){//le mail existe dans la base de donné on renvoit les templates qui vont bien avec les info utilisateurs.
 			//echo "bob marche";
 			return html('colonne_gauche.php', 'layout_principal.php');
+			
 		}
 		else{//le mail n'existe pas dans la bdd, on le rajoute et on renvoit les templates.
 			

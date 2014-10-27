@@ -7,13 +7,23 @@
 	</head>
 <body>
 	          
-          
-          <p>Documents de rentrée</p> 
-          <p>Brest - Rennes</p>
-        	
-	<?php
-		echo "$content";
-	?>
+    <div class="container" id="en-tete">
+    	<div class="col-sm-6"><img src="/projet-web/images/logo_ISEN.png"></div>
+    	<div class="col-sm-4">Documents de rentrée</div>	 
+  		<div class="col-sm-2">Brest - Rennes</div>  		
+    </div>  
+    <div class="container">
+    	<div class="col-sm-6">
+	    	<?php
+				echo "$content";
+			?>
+		</div>	
+		<div class="col-sm-6">
+			<h1>Ceci est la colonne de droite!!!</h1>
+		</div>
+	
+    </div> 	
+	
 </body>
 
 </html>
