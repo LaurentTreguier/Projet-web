@@ -5,12 +5,7 @@
     {
         function __construct($id)
         {
-        	
-            	parent::__construct("data", "identifiant", $id);
-            
-            
+        	parent::__construct("data", "identifiant", $id);           
         }
-
-        
     }
 ?>

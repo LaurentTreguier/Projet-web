@@ -4,29 +4,31 @@
 	require_once('model/data.php');
 	require_once("lib/limonade.php");
 	
+	
+	
+	 //On crée l'objet qui correspond au client dans la BDD.
 
 function identification(){
 	return html('identification.php') ;
 }
 
 function valider(){
-	$login=$_POST['login'];
-	$mdp=$_POST['mdp'];;
-
-	$_POST['mdp'];
+	$mdp=$_POST['mdp'];
 	if($mdp===$GLOBALS['cle']){//si le mdp est valide verifie si le mail existe 
 		//echo "$login";			//si oui renvoit les infos sinon crée l'utilisateur dans la base de donnée
 		
-		$bob = new Data($login);
-		$x=$bob->nom_fils;	
-		if(isset($x)){//le mail existe dans la base de donné on renvoit les templates qui vont bien avec les info utilisateurs.
+		$login=$_POST['login'];
+		$eleve = new Data($login);
+		
+		if(isset($eleve->nom_fils)){//le mail existe dans la base de donné on renvoit les templates qui vont bien avec les info utilisateurs.
 			//echo "bob marche";
-			return html('colonne_gauche.php', 'layout_principal.php');
+			return html('layout_principal.php');
 			
 		}
 		else{//le mail n'existe pas dans la bdd, on le rajoute et on renvoit les templates.
-			
-    		echo "marche passss!!!!";}
+			$nouvel_eleve = new Table('Data', 'identifiant', $login);
+			return html('layout_principal.php');
+    		}
 		//return html('analyze.php');
 		}
 		else{
