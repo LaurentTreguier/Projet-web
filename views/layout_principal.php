@@ -27,38 +27,34 @@
 	    	<div>
 	Vous pouvez modifier ces informations à tous moments.
 
-	<p> Identifiant: <?php echo "$eleve->identifiant"; ?>
+	<p> Identifiant: <?php echo "$eleve->identifiant"; ?></p>
+	<p><u style="color:blue;">Etudiant</u></p>
+
 		<form>
-			<label>Nom de l'étudiant</label><input type="text" name="nom" value='
-			<?php 
-			if (isset($eleve->nom_fils)) {
-					echo "$eleve->nom_fils";
-				}
-			?>' >
-			<label>Prénom de l'étudiant</label><input type="text" name="prenom" value='
-			<?php if (isset($eleve->prenom_fils)) {
-					echo "$eleve->prenom_fils"; 
-				}
-			?>' >
-			<label>Date de naissance</label><input type="date" name="date_naissance" value='
-			<?php 
-				if (isset($eleve->ddn_fils)) {
-					# code...
-				
-					$date = new DateTime("$eleve->ddn_fils");
-					echo $date->format('Y-m-d');
-				}
-				else{echo "";}
-		 	?>' >
+		 <?php 
+				$nom = "$eleve->nom_fils";	
+				$prenom = "$eleve->prenom_fils";
+				$date = new DateTime("$eleve->ddn_fils");
+				$ddn = $date->format('Y-m-d');
+				 			
+			?>
+			<label>Nom de l'étudiant</label><input type="text" name="nom" value='<?php echo "$nom"; ?>'><br>			
+			<label>Prénom de l'étudiant</label><input type="text" name="prenom" value='<?php	echo "$prenom"; ?>' ><br>
+			<label>Date de naissance</label><input type="date" name="date_naissance" value='<?php echo "$ddn";	?>' ><br>
 		</form>
 	</div>		
+	<p> <u style="color:blue;">Parents</u> </p>
 	<div>
-		<label>Téléphone mobile </label><input type="text" name="fixe" value='<?php echo "$eleve->tel_mobile" ?>'>
+		<label>Téléphone mobile </label><input type="text" name="fixe" value='<?php echo "$eleve->tel_mobile" ?>'><br>
 		<label> Courriel</label><input type="email" name="mail" value='<?php echo "$eleve->courriel" ?>'>
 	</div>
 		</div>	
 		<div class="col-sm-6">
 			<h1>Ceci est la colonne de droite!!!</h1>
+			<select>
+			<option>CIR1</option>
+			<option>CIR2</option>
+			</select>
 		</div>
 	
     </div> 	
