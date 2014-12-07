@@ -12,7 +12,7 @@ function identification(){
 	return html('identification.php') ;
 }
 
-function valider(){
+function valider_login(){
 	$mdp=$_POST['mdp'];
 	if($mdp===$GLOBALS['cle']){//si le mdp est valide verifie si le mail existe 
 		//echo "$login";			//si oui renvoit les infos sinon crée l'utilisateur dans la base de donnée
@@ -35,7 +35,17 @@ function valider(){
 			echo "fuck off";
 			echo "$mdp";
 		}
-	
+}
+
+function valider_modif(){//inscrit les modifs du formulaire dans la BDD
+
+	$nom_fils = $_POST['nom'];
+	$prenom_fils = $_POST['prenom'];
+	$date_naissance = $_POST['date_naissance'];
+	$tel = $_POST['portable'];
+	$mail = $_POST['mail'];
+
+
 }
 
 ?>

@@ -4,7 +4,8 @@ require_once("controleur.php");
 
 
 dispatch("/", "identification");
-dispatch_post("/validation", "valider");
+dispatch_post("/validation", "valider_login");
+dispatch_post("/modification", "valider_modif");
 
 run();
 ?>
