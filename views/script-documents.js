@@ -1,5 +1,23 @@
-<script src="lib/jquery-1.11.1.min.js"></script>
 
+/*alert('bob');*/
+function getval(sel) {
+	
+	//alert(sel.value);
 
-    $( "#selecteur" ).alert("bob");
+	selection = sel.value;
+    $.ajax({
+       url : 'model/get-doc.php', // La ressource ciblée
+       type: 'GET',
+       dataType:"html",
+       data : 'select=' + selection,
+       success: function (html, statut) {
+			//alert(html+",,,"+statut);
+			$("#paragraphe").append(html);
+       },
+       error: function (html, statut, erreur) {
+       		alert(erreur + ",,," + html+",,,"+statut);
+       }
+    });
+}
+    
 	

@@ -38,13 +38,14 @@ function valider_login(){
 }
 
 function valider_modif(){//inscrit les modifs du formulaire dans la BDD
-
+	$login = $_POST['login'];
 	$nom_fils = $_POST['nom'];
 	$prenom_fils = $_POST['prenom'];
 	$date_naissance = $_POST['date_naissance'];
 	$tel = $_POST['portable'];
 	$mail = $_POST['mail'];
-
+	set($prenom_fils, $nom_fils, $mail, $tel, $date_naissance, $login);
+	
 
 }
 

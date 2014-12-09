@@ -3,7 +3,7 @@
     
     class Table
     {
-        private $members;
+        protected $members;
 
         public function __construct($table, $idName, $id)
         {
