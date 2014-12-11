@@ -38,13 +38,23 @@ function valider_login(){
 }
 
 function valider_modif(){//inscrit les modifs du formulaire dans la BDD
-	$login = $_POST['login'];
+	$login = $_POST['identifiant'];
 	$nom_fils = $_POST['nom'];
 	$prenom_fils = $_POST['prenom'];
 	$date_naissance = $_POST['date_naissance'];
 	$tel = $_POST['portable'];
 	$mail = $_POST['mail'];
-	set($prenom_fils, $nom_fils, $mail, $tel, $date_naissance, $login);
+	//set($prenom_fils, $nom_fils, $mail, $tel, $date_naissance, $login);
+
+	$mysqli= (new mysqli($GLOBALS["config"]["address"], $GLOBALS["config"]["login"], $GLOBALS["config"]["password"], $GLOBALS["config"]["name"]));
+	/*$result = $mysqli->query("UPDATE `data` SET `nom_fils`=".$nom_fils." `prenom_fils`=".$prenom_fils." `ddn_fils`=".$date_naissance." `tel_mobile`=".$tel." 
+				`courriel`=".$mail." WHERE `identifiant`=".$login);*/
+
+$result = $mysqli->query("UPDATE `data` SET `nom_fils`="."'$nom_fils'".", `prenom_fils`="."'$prenom_fils'"." WHERE `identifiant`="."'$login'");
+
+	if ($result==1) {
+		//http_redirect(http://localhost/Projet-web/?/validation)
+	}
 	
 
 }

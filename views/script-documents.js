@@ -1,5 +1,4 @@
 
-/*alert('bob');*/
 function getval(sel) {
 	
 	//alert(sel.value);
@@ -12,7 +11,7 @@ function getval(sel) {
        data : 'select=' + selection,
        success: function (html, statut) {
 			//alert(html+",,,"+statut);
-			$("#paragraphe").append(html);
+			$("#paragraphe").html(html);
        },
        error: function (html, statut, erreur) {
        		alert(erreur + ",,," + html+",,,"+statut);

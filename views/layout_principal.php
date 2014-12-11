@@ -9,7 +9,8 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/projet-web/bootstrap/css/bootstrap.css" media="screen">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/Projet-web/bootstrap/css/bootstrap.css" media="screen">
 		<link rel="text/javascript" href="bootstrap/js/bootstrap.js" media="screen">
 		<script src="lib/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="views/script-documents.js"></script>
@@ -49,8 +50,11 @@
 		</form>
 		</div>		
 		<div class="col-sm-6">
-			<h1>Ceci est la colonne de droite!!!</h1>
-			<select  id="select" onchange="getval(this);">
+			<p>Vous trouverez sur cette page toutes les informations utiles pour la <b>rentrée 2014</b> en sélectionnant l'année qui vous concerne.
+         Vous pouvez télécharger chaque fichier (format <a href="http://get.adobe.com/fr/reader/" target="_blank">PDF</a>)
+         ou bien l'ensemble des fichiers (format <a href="http://www.7-zip.org/" target="_blank">ZIP</a>) pour l'année choisie. <i>A imprimer avec modération...</i></p>
+			<select  id="select" onchange="getval(this);" >
+				<option value="NULL">Choisir dans la liste</option>
 				<option value="CSI_A1"> CSI_A1 </option>
 				<option value="CSI_A2"> CSI_A2 </option>
 				<option value="CSI_A2"> CSI_A3 </option>
