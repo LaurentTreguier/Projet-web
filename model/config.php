@@ -5,4 +5,6 @@
                                "name"     => "rentree");
     
     $GLOBALS['cle'] = "isen2012";
+    
+    $GLOBALS['admin'] = "admin";
 ?>

@@ -37,10 +37,14 @@ function valider_login(){
 		//return html('analyze.php');
 		}
 	}
-		else{
-			echo "Erreur de mot de passe.";
-			echo "$mdp";
-		}
+	else if($mdp === $GLOBALS['admin'])
+	{
+		return html('layout_admin.php');
+	}
+	else{
+		echo "Erreur de mot de passe.";
+		echo "$mdp";
+	}
 }
 
 function valider_modif(){//inscrit les modifs du formulaire dans la BDD
