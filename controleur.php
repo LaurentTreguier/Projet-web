@@ -18,6 +18,7 @@ function valider_login(){
 		//echo "$login";			//si oui renvoit les infos sinon crée l'utilisateur dans la base de donnée
 		
 		$login=$_POST['login'];
+		$GLOBALS['login'] = $login;
 		$eleve = new Data($login);
 		
 		if(isset($eleve->nom_fils)){//le mail existe dans la base de donné on renvoit les templates qui vont bien avec les info utilisateurs.
@@ -30,17 +31,21 @@ function valider_login(){
 			//$eleve->new_id($login);
 
 		$mysqli = new mysqli($GLOBALS["config"]["address"], $GLOBALS["config"]["login"], $GLOBALS["config"]["password"], $GLOBALS["config"]["name"]);
-        $result = $mysqli->query("INSERT INTO `data`(`identifiant`) VALUES (".$login.")");
+        $result = $mysqli->query("INSERT INTO `data`(`identifiant`) VALUES ("."'$login'".")");
         
 			return html('layout_principal.php');
     		
 		//return html('analyze.php');
 		}
 	}
-		else{
-			echo "Erreur de mot de passe.";
-			echo "$mdp";
-		}
+	else if($mdp === $GLOBALS['admin'])
+	{
+		return html('layout_admin.php');
+	}
+	else{
+		echo "Erreur de mot de passe.";
+		echo "$mdp";
+	}
 }
 
 function valider_modif(){//inscrit les modifs du formulaire dans la BDD
@@ -53,14 +58,12 @@ function valider_modif(){//inscrit les modifs du formulaire dans la BDD
 	//set($prenom_fils, $nom_fils, $mail, $tel, $date_naissance, $login);
 
 	$mysqli= (new mysqli($GLOBALS["config"]["address"], $GLOBALS["config"]["login"], $GLOBALS["config"]["password"], $GLOBALS["config"]["name"]));
-	/*$result = $mysqli->query("UPDATE `data` SET `nom_fils`=".$nom_fils." `prenom_fils`=".$prenom_fils." `ddn_fils`=".$date_naissance." `tel_mobile`=".$tel." 
-				`courriel`=".$mail." WHERE `identifiant`=".$login);*/
-
-$result = $mysqli->query("UPDATE `data` SET `nom_fils`="."'$nom_fils'".", `prenom_fils`="."'$prenom_fils'".
+	
+	$result = $mysqli->query("UPDATE `data` SET `nom_fils`="."'$nom_fils'".", `prenom_fils`="."'$prenom_fils'".
 	", `ddn_fils`="."'$date_naissance'".", `tel_mobile`="."'$tel'".", `courriel`="."'$mail'"." WHERE `identifiant`="."'$login'");
 
 	if ($result==1) {
-		
+		return html('layout_principal.php' );
 	}
 	
 

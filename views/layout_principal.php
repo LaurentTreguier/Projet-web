@@ -4,7 +4,14 @@
 	require_once('model/data.php');
 	require_once("lib/limonade.php");
 	require_once("controleur.php");
-	$eleve = new Data($_POST['login']);
+	if (isset($_POST['login'])) {
+		$eleve = new Data($_POST['login']);
+		$_SESSION['login'] = $_POST['login'];
+	}
+	else{
+		$eleve = new Data($_SESSION['login']);
+	}
+	
 	?> 
 <html>
 	<head>
