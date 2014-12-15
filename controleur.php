@@ -26,13 +26,19 @@ function valider_login(){
 			
 		}
 		else{//le mail n'existe pas dans la bdd, on le rajoute et on renvoit les templates.
-			$nouvel_eleve = new Table('Data', 'identifiant', $login);
+			
+			//$eleve->new_id($login);
+
+		$mysqli = new mysqli($GLOBALS["config"]["address"], $GLOBALS["config"]["login"], $GLOBALS["config"]["password"], $GLOBALS["config"]["name"]);
+        $result = $mysqli->query("INSERT INTO `data`(`identifiant`) VALUES (".$login.")");
+        
 			return html('layout_principal.php');
-    		}
+    		
 		//return html('analyze.php');
 		}
+	}
 		else{
-			echo "fuck off";
+			echo "Erreur de mot de passe.";
 			echo "$mdp";
 		}
 }
@@ -50,10 +56,11 @@ function valider_modif(){//inscrit les modifs du formulaire dans la BDD
 	/*$result = $mysqli->query("UPDATE `data` SET `nom_fils`=".$nom_fils." `prenom_fils`=".$prenom_fils." `ddn_fils`=".$date_naissance." `tel_mobile`=".$tel." 
 				`courriel`=".$mail." WHERE `identifiant`=".$login);*/
 
-$result = $mysqli->query("UPDATE `data` SET `nom_fils`="."'$nom_fils'".", `prenom_fils`="."'$prenom_fils'"." WHERE `identifiant`="."'$login'");
+$result = $mysqli->query("UPDATE `data` SET `nom_fils`="."'$nom_fils'".", `prenom_fils`="."'$prenom_fils'".
+	", `ddn_fils`="."'$date_naissance'".", `tel_mobile`="."'$tel'".", `courriel`="."'$mail'"." WHERE `identifiant`="."'$login'");
 
 	if ($result==1) {
-		//http_redirect(http://localhost/Projet-web/?/validation)
+		
 	}
 	
 

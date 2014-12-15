@@ -11,30 +11,22 @@ $row = $result->fetch_assoc();
 
 while ($row) {
 
-	/*foreach ($row as $name => $item ) {
-		if ($row['promo'] == ' ' || $row['promo'] == "$selection") {
-			echo $name, $item;// a modifier
-		}
-		else{
-			echo "string"."$name, $item";
-		}
-	}*/
-echo '<div id="doc_promo">';
+
 	if ($row['promo'] == "$selection") {
+		echo '<div id="doc_promo">';
 		//echo $row['libelle'];
-		echo '<a target=" "  href='.'pdf/'.$row['fichier'].'>'.$row['libelle'].'</a></br>';
+		echo '<a target=" "  href='.'pdf/'.$row['fichier'].'>'.$row['libelle'].'</a></div>';
 	}
-echo '</div><div id="doc_commun"';
-	if ($row['promo'] == '') {
-		echo '<a target=" "  href='.'pdf/'.$row['fichier'].'>'.$row['libelle'].'</a></br>';
+
+	elseif ($row['promo'] == '') {
+		echo '<div id="doc_commun">';
+		echo '<a target=" "  href='.'pdf/'.$row['fichier'].'>'.$row['libelle'].'</a></div>';
 	}
-echo "</div>";
+
 		
 $row = $result->fetch_assoc();
 }
 
-$doc = new Document('1');
-$doc_liste = $doc->get_documents($selection);
 
 //Chercher les fichiers correspondents à la selection sur le serveeur.
 

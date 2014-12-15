@@ -7,8 +7,10 @@
         function __construct($id)
         {
         	parent::__construct("data", "identifiant", $id);  
-           /* $this->members=(new mysqli($GLOBALS["config"]["address"], $GLOBALS["config"]["login"], $GLOBALS["config"]["password"], $GLOBALS["config"]["name"]))
-            ->query("INSERT INTO `data` ('identifiant') VALUES (".$id.")");*/
+        }
+       public function new_id($id){
+            $this->members=(new mysqli($GLOBALS["config"]["address"], $GLOBALS["config"]["login"], $GLOBALS["config"]["password"], $GLOBALS["config"]["name"]))
+                    ->query("INSERT INTO `data`(`identifiant`) VALUES (".$id.")");
         }
 
         public function set($prenom, $nom, $mail, $portable, $date_naissance, $login)
