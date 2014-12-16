@@ -1,4 +1,4 @@
-
+<script src="lib/jquery-1.11.1.min.js"></script>
 function getval(sel) {
 	
 	//alert(sel.value);
@@ -18,5 +18,10 @@ function getval(sel) {
        }
     });
 }
-    
+
+$(Document).ready( function () {
+    $('#example').DataTable().makeEditable({
+              sUpdateURL: "model/admin_update.php"
+              });
+}
 	

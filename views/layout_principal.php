@@ -24,7 +24,7 @@
 		
 		<title>Documents de rentrée</title>
 	</head>
-<body>
+<body id="corps">
     <div class="container" id="en-tete">
     	<div class="col-sm-6"><img src="/projet-web/images/logo_ISEN.png"></div>
     	<div class="col-sm-4">Documents de rentrée</div>	 
