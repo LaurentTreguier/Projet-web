@@ -19,23 +19,25 @@ $(document).ready(function()
 	    var contenu_avant = $(this).text(); 
 	                var id_bdd = $(this).attr("id"); 
 	                var champ_bdd = $(this).attr("name"); 
-	    //alert("avant =" + contenu_avant + "id" + id_bdd); 
-	    //alert("name " + champ_bdd);   
+	   alert("avant =" + contenu_avant + "id: " + id_bdd + "name " + champ_bdd);   
 	    $(this).blur(function(){ 
 	        var contenu_apres = $(this).text(); 
 	        //alert("contenu apres = " + contenu_apres); 
 	         
 	        if (contenu_avant != contenu_apres){ 
-	          parametre='id='id_bdd+'&champ='+champ_bdd+'&contenu='+contenu_apres ; 
+	          parametre='id='+id_bdd+'&champ='+champ_bdd+'&contenu='+contenu_apres ; 
 	          //alert(param) ; 
 	          $.ajax({ 
-	            url: "../admin_update.php",  
+	            url: "model/admin_update.php",  
 	            type: "POST",
 	            dataType:"html",  
 	            data: parametre,  
 	            success: function (html, statut) {
 					alert(html+",,,"+statut);
 				}
+				error: function (html, statut, erreur) {
+       				alert(erreur + ",,," + html+",,,"+statut);
+       			}
 	          }); 
 	        } 
 	          
@@ -72,14 +74,14 @@ require_once 'model/document.php';
 	    
 	    <?php
 		$mysqli = new mysqli($GLOBALS["config"]["address"], $GLOBALS["config"]["login"], $GLOBALS["config"]["password"], $GLOBALS["config"]["name"]);
-	    $result = $mysqli->query("SELECT DISTINCT `libelle`, `promo` FROM `document`");
+	    $result = $mysqli->query("SELECT DISTINCT `libelle`, `promo`, `id` FROM `document`");
 	    $row = $result->fetch_assoc();
 			while($row){
 				if ($row["libelle"] != '') {
-					echo '<tr><td id="document" contenteditable="true" name="libelle">'.$row["libelle"].'</td>';
+					echo '<tr><td id="'.$row["id"].'" contenteditable="true" name="libelle">'.$row["libelle"].'</td>';
 				}
 				
-					echo '<td id="document" contenteditable="true" name="promo">'.$row["promo"].'</td> </tr>';
+					echo '<td id="'.$row["id"].'" contenteditable="true" name="promo">'.$row["promo"].'</td> </tr>';
 				
 	 			$row = $result->fetch_assoc();
 			}	
